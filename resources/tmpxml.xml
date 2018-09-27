@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Certificado="" Fecha="2018-09-06T14:51:25" Folio="0" FormaPago="99" LugarExpedicion="45018" MetodoPago="PUE" Moneda="MXN" NoCertificado="" Sello="" Serie="EX" SubTotal="80000.00" TipoCambio="1" TipoDeComprobante="I" Total="92800.00" Version="3.3" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd">
+    <cfdi:Emisor RegimenFiscal="601" Rfc="LAN7008173R5"/>
+    <cfdi:Receptor Rfc="XEXX010101000" UsoCFDI="D10"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto Cantidad="1.00" ClaveProdServ="10191508" ClaveUnidad="ACT" Descripcion="QUIMICA CLINICA" Importe="80000.00" NoIdentificacion="34006" ValorUnitario="80000.00">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Base="80000.00" Importe="12800.00" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    <cfdi:Impuestos TotalImpuestosTrasladados="12800.00">
+        <cfdi:Traslados>
+            <cfdi:Traslado Importe="12800.00" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+        </cfdi:Traslados>
+    </cfdi:Impuestos>
+</cfdi:Comprobante>

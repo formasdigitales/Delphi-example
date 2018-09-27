@@ -1,0 +1,7 @@
+[
+  uuid(5639E853-64B9-441E-B682-21E778751A4C),
+  version(1.0)
+]
+library ClienteFormasProject
+{
+};
