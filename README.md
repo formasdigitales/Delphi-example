@@ -31,6 +31,36 @@ function GetContenidoBase64(sCertificadoBase64 : string): string;
 ```
 Nos regresa el contenido del certificado en base64.
 
-Lo siguiente es generar el sello 
+Lo siguiente es generar el sello, para esto utilizaremos las siguientes funciones de la clase _TOpenSSL_ que se encuentra en el archivo _Facturacion.OpenSSL.pas_  
+```Delphi
+    procedure AsignarLlavePrivada(const aRutaArchivoLlavePrivada: String; const aContrasena: String);
+    function HacerDigestion(const aCadena: WideString; const aTipoDigestion: TMetodoDigestion): String;
+```
+
+Primero asignamos la llave privada para luego utilizarla para generar el sello una vez obtenido el sello actualizamos los atributos en el xml para enviarlo al servicio soap de la siguiente forma:
+
+```Delphi
+timbradoWS := GetWSTimbradoCFDI(False, '', nil);
+parameters := TimbrarCFDI.Create;
+
+acc := accesos.Create;
+acc.password := 'pruebasWS';
+acc.usuario := 'pruebasWS';
+
+parameters.accesos := acc;
+parameters.comprobante := xmlString;
+
+response := timbradoWS.TimbrarCFDI(parameters);
+
+//response.acuseCFDI.xmlTimbrado;
+if response.acuseCFDI.error.Equals('') then
+  Result := response.acuseCFDI.xmlTimbrado
+else
+begin
+    Result := response.acuseCFDI.codigoError + '----' + response.acuseCFDI.error
+end;
+```
+
+Si todo sale bien el servicio nos respondera con un xml timbrado de lo contrario nos mostrara un error con la cuasa de este.
 
 
